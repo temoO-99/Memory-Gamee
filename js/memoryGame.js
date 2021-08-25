@@ -68,8 +68,9 @@ function checkMatch(firstBlock, secoundBlock){
 
         if(count === 9){
             setTimeout(() => {
+                alert("Well Done start a new game?");
                 window.location.reload();
-            }, 500);
+            }, 300);
 
         }else{
             count++;
