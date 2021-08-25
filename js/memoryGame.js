@@ -17,7 +17,8 @@ document.querySelector(".control-info span").onclick = (function(){
 });
 
 
-let dioration = 1000 ;
+let dioration = 1000 ,
+    count = 0;
 
 let blocksContainer = document.querySelector(".memory-game");
 
@@ -56,6 +57,7 @@ function checkMatch(firstBlock, secoundBlock){
     let traies = document.querySelector(".traies span");
 
     if(firstBlock.dataset.game === secoundBlock.dataset.game){
+
         firstBlock.classList.remove('is-flip');
         secoundBlock.classList.remove('is-flip');
         firstBlock.classList.add('match');
@@ -64,8 +66,21 @@ function checkMatch(firstBlock, secoundBlock){
             document.getElementById("sucsses").play();
         }, 500);
 
+        if(count === 9){
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
 
-    }else{
+        }else{
+            count++;
+            console.log("not yet")
+        }
+
+
+    }
+
+
+    else{
         traies.innerHTML = parseInt(traies.innerHTML) + 1 ;
 
         setTimeout(()=>{
